@@ -8,4 +8,32 @@ class Api::GamesController < ApplicationController
     end
     render "name_view.json.jbuilder"
   end
-end
+  
+  def guess_number #query parameters
+    guess = params["guess"].to_i
+    answer = 36
+
+    if guess == answer
+      @message = "Good Job"
+    elsif guess < answer
+      @message = "guess higher"
+    else
+      @message = "guess lower"
+    end
+    render "number_view.json.jbuilder"
+    end
+
+  def guess_a_number
+    guess = params["guess"].to_i
+    answer = 36
+
+    if guess == answer
+      @message = "Good Job"
+    elsif guess < answer
+      @message = "guess higher"
+    else
+      @message = "guess lower"
+    end
+    render "segment_parameter_view.json.jbuilder"
+  end
+ end
